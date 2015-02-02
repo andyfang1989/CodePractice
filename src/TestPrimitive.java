@@ -1,15 +1,16 @@
 import static org.junit.Assert.*;
 
-public class TestPrimitiveMain {
-	public static void main(String[] args) {
-		System.out.println("Hello Github!");
-		TestGetBitsParityNaively();
-		TestGetBitsParityBetter();
-		TestPow();
-		TestConvertBase();
+public class TestPrimitive implements TestUtilMethods {
+	public void runTests() {
+		System.out.println("Start to run TestPrimitive");
+		testGetBitsParityNaively();
+		testGetBitsParityBetter();
+		testPow();
+		testConvertBase();
+		System.out.println("TestPrimitive Done");
 	}
 
-	public static void TestGetBitsParityNaively() {
+	private void testGetBitsParityNaively() {
 		System.out.println("TestGetBitsParityNaively Starts");
 		long[] testSet = new long[1];
 		testSet[0] = 1L;
@@ -23,7 +24,7 @@ public class TestPrimitiveMain {
 		System.out.println("TestGetBitsParityNaively Passes");
 	}
 
-	public static void TestGetBitsParityBetter() {
+	private void testGetBitsParityBetter() {
 		System.out.println("TestGetBitsParityBetter Starts");
 		long[] testSet = new long[1];
 		testSet[0] = 1L;
@@ -37,7 +38,7 @@ public class TestPrimitiveMain {
 		System.out.println("TestGetBitsParityBetter Passes");
 	}
 
-	public static void TestPow() {
+	private void testPow() {
 		System.out.println("TestPow Starts");
 		assertEquals(1.0, PrimitiveUtil.pow(1.2, 0), 0.00001);
 		assertEquals(1.2, PrimitiveUtil.pow(1.2, 1), 0.00001);
@@ -48,7 +49,7 @@ public class TestPrimitiveMain {
 		System.out.println("TestPow Passes");
 	}
 
-	public static void TestConvertBase() {
+	private void testConvertBase() {
 		System.out.println("TestConvertBase Starts");
 		assertEquals("7", PrimitiveUtil.convertBase(2, 10, "111"));
 		assertEquals("-7", PrimitiveUtil.convertBase(2, 10, "-111"));
