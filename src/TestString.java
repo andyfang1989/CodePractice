@@ -8,7 +8,7 @@ public class TestString implements TestUtilMethods {
 		TestGetIntegerFromString();
 		System.out.println("TestString ends");
 	}
-	
+
 	private void TestGetIntegerFromString() {
 		System.out.println("TestGetIntegerFromString starts");
 		assertEquals(124, StringUtil.getIntegerFromString("124"));
