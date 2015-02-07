@@ -4,5 +4,7 @@ public class TestMain {
 		testPrimitive.runTests();
 		TestArray testArray = new TestArray();
 		testArray.runTests();
+		TestString testString = new TestString();
+		testString.runTests();
 	}
 }
