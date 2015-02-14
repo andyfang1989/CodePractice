@@ -6,5 +6,7 @@ public class TestMain {
 		testArray.runTests();
 		TestString testString = new TestString();
 		testString.runTests();
+		TestLinkedList testLinkedList = new TestLinkedList();
+		testLinkedList.runTests();
 	}
 }
