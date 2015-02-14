@@ -8,5 +8,9 @@ public class TestMain {
 		testString.runTests();
 		TestLinkedList testLinkedList = new TestLinkedList();
 		testLinkedList.runTests();
+		TestStackQueue testStackQueue = new TestStackQueue();
+		testStackQueue.runTests();
+		TestBinaryTree testBinaryTree = new TestBinaryTree();
+		testBinaryTree.runTests();
 	}
 }
