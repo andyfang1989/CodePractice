@@ -42,12 +42,12 @@ public class TestStackQueue implements TestUtilMethods {
 		TreeNode third2 = new TreeNode(6);
 		TreeNode fourth1 = new TreeNode(7);
 		TreeNode fourth2 = new TreeNode(8);
-		root.left = second1;
-		root.right = second2;
-		second1.right = third1;
-		second2.left = third2;
-		third2.left = fourth1;
-		third2.right = fourth2;
+		root.setLeft(second1);
+		root.setRight(second2);
+		second1.setRight(third1);
+		second2.setLeft(third2);
+		third2.setLeft(fourth1);
+		third2.setRight(fourth2);
 		StackQueueUtil.printBinaryTreeByLevel(root);
 		System.out.println("TestPrintBinaryTreeByLevel ends");
 	}

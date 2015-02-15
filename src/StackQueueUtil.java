@@ -16,13 +16,13 @@ public class StackQueueUtil {
 			int size = q.size();
 			while (size > 0) {
 				TreeNode temp = q.poll();
-				System.out.print(temp.val + " ");
-				if (temp.left != null) {
-					q.offer(temp.left);
+				System.out.print(temp.getVal() + " ");
+				if (temp.getLeft() != null) {
+					q.offer(temp.getLeft());
 				}
 
-				if (temp.right != null) {
-					q.offer(temp.right);
+				if (temp.getRight() != null) {
+					q.offer(temp.getRight());
 				}
 
 				size--;
