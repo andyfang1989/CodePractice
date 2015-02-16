@@ -12,5 +12,7 @@ public class TestMain {
 		testStackQueue.runTests();
 		TestBinaryTree testBinaryTree = new TestBinaryTree();
 		testBinaryTree.runTests();
+		TestHeap testHeap = new TestHeap();
+		testHeap.runTests();
 	}
 }

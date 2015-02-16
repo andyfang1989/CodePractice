@@ -141,4 +141,59 @@ public class BinaryTreeUtil {
 
 		return root;
 	}
+
+	/**
+	 * 
+	 * @param root
+	 *            the root node
+	 * @param first
+	 *            the first node
+	 * @param second
+	 *            the second node
+	 * @return LCA by using parent pointer
+	 */
+	public static TreeNode getLCAWithParentPointerBetter(TreeNode root,
+			TreeNode first, TreeNode second) {
+		if (root == null || first == null || second == null)
+			throw new IllegalArgumentException(
+					"there is null tree node in input!");
+
+		if (first == second)
+			return first;
+
+		TreeNode temp = first;
+		int firstDepth = 0;
+		while (temp != null) {
+			firstDepth++;
+			temp = temp.getParent();
+		}
+
+		temp = second;
+		int secondDepth = 0;
+		while (temp != null) {
+			secondDepth++;
+			temp = temp.getParent();
+		}
+
+		if (firstDepth > secondDepth) {
+			int offset = firstDepth - secondDepth;
+			while (offset > 0) {
+				first = first.getParent();
+				offset--;
+			}
+		} else {
+			int offset = secondDepth - firstDepth;
+			while (offset > 0) {
+				second = second.getParent();
+				offset--;
+			}
+		}
+
+		while (first != second) {
+			first = first.getParent();
+			second = second.getParent();
+		}
+
+		return first;
+	}
 }

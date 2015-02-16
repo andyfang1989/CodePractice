@@ -8,6 +8,7 @@ public class TestBinaryTree implements TestUtilMethods {
 		TestCheckBalanced();
 		TestGetLCAWithoutParentPointer();
 		TestGetLCAWithParentPointer();
+		TestGetLCAWithParentPointerBetter();
 		System.out.println("TestBinaryTree ends");
 	}
 
@@ -94,5 +95,31 @@ public class TestBinaryTree implements TestUtilMethods {
 		assertEquals(fourth2,
 				BinaryTreeUtil.getLCAWithParentPointer(root, fourth2, fourth2));
 		System.out.println("TestGetLCAWithParentPointer ends");
+	}
+	
+	private void TestGetLCAWithParentPointerBetter() {
+		System.out.println("TestGetLCAWithParentPointerBetter starts");
+		TreeNode root = new TreeNode(0);
+		TreeNode second1 = new TreeNode(2);
+		TreeNode second2 = new TreeNode(4);
+		TreeNode third1 = new TreeNode(5);
+		TreeNode third2 = new TreeNode(6);
+		TreeNode fourth1 = new TreeNode(7);
+		TreeNode fourth2 = new TreeNode(8);
+		root.setLeft(second1);
+		root.setRight(second2);
+		second1.setLeft(third1);
+		second1.setRight(third2);
+		second2.setRight(fourth1);
+		fourth1.setLeft(fourth2);
+		assertEquals(root,
+				BinaryTreeUtil.getLCAWithParentPointerBetter(root, third1, fourth2));
+		assertEquals(second1,
+				BinaryTreeUtil.getLCAWithParentPointerBetter(root, third1, third2));
+		assertEquals(fourth1,
+				BinaryTreeUtil.getLCAWithParentPointerBetter(root, fourth1, fourth2));
+		assertEquals(fourth2,
+				BinaryTreeUtil.getLCAWithParentPointerBetter(root, fourth2, fourth2));
+		System.out.println("TestGetLCAWithParentPointerBetter ends");
 	}
 }
