@@ -18,6 +18,7 @@ public class TestHeap implements TestUtilMethods {
 		testMaxHeap();
 		testMinHeap();
 		TestSortKSortedLists();
+		TestGetKSmallestItems();
 		System.out.println("TestHeap ends");
 	}
 
@@ -92,6 +93,25 @@ public class TestHeap implements TestUtilMethods {
 		    assertTrue(t.getTradingPrice() == price);
 		    price += 1.0;
 		}
+		System.out.println("TestSortKSortedLists ends");
+	}
+	
+	private void TestGetKSmallestItems() {
+		System.out.println("TestSortKSortedLists starts");
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(4);
+		list.add(2);
+		list.add(5);
+		list.add(1);
+		list.add(4);
+		list.add(2);
+		list.add(5);
+		List<Integer> result = HeapUtil.getKSmallestItems(list, 5);
+		StringBuilder sb = new StringBuilder();
+		for (int n : result)
+			sb.append(n);
+		assertEquals("42211", sb.toString());
 		System.out.println("TestSortKSortedLists ends");
 	}
 }

@@ -1,12 +1,20 @@
 package utils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import datastructure.ComparablePair;
+import datastructure.MaxHeap;
 import datastructure.MinHeap;
 
 public class HeapUtil {
+	/**
+	 * 
+	 * @param lists
+	 *            a list of list of comparable items with ascending order
+	 * @return a list of merged items with ascending order
+	 */
 	public static <T extends Comparable<T>> List<T> sortKSortedLists(
 			List<List<T>> lists) {
 		MinHeap<ComparablePair<T, Integer>> heap = new MinHeap<ComparablePair<T, Integer>>();
@@ -34,6 +42,37 @@ public class HeapUtil {
 						listNum));
 				indexTracker.put(listNum, nextIndex);
 			}
+		}
+
+		return result;
+	}
+
+	public static <T extends Comparable<T>> List<T> getKSmallestItems(
+			List<T> list, int k) {
+		if (list.size() < k)
+			throw new IllegalArgumentException(
+					"the size of the list should be larger than k");
+		if (list.size() == k)
+			return new ArrayList<T>(list);
+
+		List<T> result = new ArrayList<T>();
+		MaxHeap<T> heap = new MaxHeap<T>();
+		int i = 0;
+		for (i = 0; i < k; i++) {
+			heap.push(list.get(i));
+		}
+
+		while (i < list.size()) {
+			if (list.get(i).compareTo(heap.peek()) < 0) {
+				heap.pop();
+				heap.push(list.get(i));
+			}
+
+			i++;
+		}
+
+		while (!heap.isEmpty()) {
+			result.add(heap.pop());
 		}
 
 		return result;
