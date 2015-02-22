@@ -16,5 +16,7 @@ public class TestMain {
 		testBinaryTree.runTests();
 		TestHeap testHeap = new TestHeap();
 		testHeap.runTests();
+		TestSearch testSearch = new TestSearch();
+		testSearch.runTests();
 	}
 }
