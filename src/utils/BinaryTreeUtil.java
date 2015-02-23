@@ -199,4 +199,85 @@ public class BinaryTreeUtil {
 
 		return first;
 	}
+	
+	/**
+	 * 
+	 * @param node
+	 * @return true if it's a BST
+	 */
+	public static boolean checkBST(TreeNode node) {
+		boolean preSet = false;
+		int pre = -1;
+		Stack<TreeNode> s = new Stack<TreeNode>();
+		while (node != null || !s.isEmpty()) {
+			if (node != null) {
+				s.push(node);
+				node = node.getLeft();
+			} else {
+				TreeNode temp = s.pop();
+				if (!preSet) {
+					pre = temp.getVal();
+					preSet = true;
+				} else {
+					if (temp.getVal() < pre) {
+						return false;
+					} else {
+						pre = temp.getVal();
+					}
+					if (temp.getRight() != null)
+						node = temp.getRight();
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * 
+	 * @param root
+	 * @param k
+	 * @return
+	 */
+	public static Integer getFirstElementLargerThanKInBST(TreeNode root, int k) {
+		Integer result = null;
+		
+		while (root != null) {
+			if (root.getVal() > k) {
+				result = root.getVal();
+				root = root.getLeft();
+			} else {
+				root = root.getRight();
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @param root
+	 * @param k
+	 * @return
+	 */
+	public static int[] getKLargestElementsInBST(TreeNode root, int k) {
+		int[] result = new int[k];
+		int i = 0;
+		Stack<TreeNode> s = new Stack<TreeNode>();
+		while(root != null || !s.isEmpty()) {
+			if (root != null) {
+				s.push(root);
+				root = root.getRight();
+			} else {
+				TreeNode temp = s.pop();
+				result[i++] = temp.getVal();
+				if (i == k)
+					break;
+				if (temp.getLeft() != null)
+					root = temp.getLeft();
+			}
+		}
+		
+		return result;
+	}
 }

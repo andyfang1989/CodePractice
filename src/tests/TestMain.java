@@ -18,5 +18,9 @@ public class TestMain {
 		testHeap.runTests();
 		TestSearch testSearch = new TestSearch();
 		testSearch.runTests();
+		TestHash testHash = new TestHash();
+		testHash.runTests();
+		TestSort testSort = new TestSort();
+		testSort.runTests();
 	}
 }
