@@ -22,5 +22,7 @@ public class TestMain {
 		testHash.runTests();
 		TestSort testSort = new TestSort();
 		testSort.runTests();
+		TestRecursion testRecursion = new TestRecursion();
+		testRecursion.runTests();
 	}
 }
