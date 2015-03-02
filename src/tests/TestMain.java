@@ -24,5 +24,9 @@ public class TestMain {
 		testSort.runTests();
 		TestRecursion testRecursion = new TestRecursion();
 		testRecursion.runTests();
+		TestDP testDP = new TestDP();
+		testDP.runTests();
+		TestGreedy testGreedy = new TestGreedy();
+		testGreedy.runTests();
 	}
 }
